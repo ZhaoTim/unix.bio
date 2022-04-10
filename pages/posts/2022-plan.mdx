@@ -1,0 +1,25 @@
+import Layout from 'lib/components/layout'
+import {
+  Display,
+  Image,
+} from '@geist-ui/core'
+
+export const meta = {
+  title: '我想给自己一个机会',
+  date: '2022-04-10T14:09:17.242Z',
+  description: '',
+  image: '',
+}
+
+export const images = {
+  running: 'https://static.zhaomeicheng.com/WechatIMG947.jpeg',
+}
+
+<Display
+  shadow
+  caption="4月份重新开始减肥，五一要回哈尔滨，这次应该会坚持下来吧"
+>
+  <Image width="200px" height="266px" src={images.running} />
+</Display>
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

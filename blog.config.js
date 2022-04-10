@@ -14,8 +14,8 @@ const BLOG = {
   },
 
   email: 'zhaomeichengq@gmail.com',
-  // github: '',
-  // twitter: '',
+  github: '',
+  twitter: '',
   domain: 'zhaomeicheng.com',
 
   googleAnalytics: 'UA-110371817-3',
