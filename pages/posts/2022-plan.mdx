@@ -2,7 +2,15 @@ import Layout from 'lib/components/layout'
 import {
   Display,
   Image,
+  Grid,
+  Tree,
+  Rating,
+  Note,
+  Divider,
+  Loading,
+  Drawer,
 } from '@geist-ui/core'
+import Gallery from './components/Gallery'
 
 export const meta = {
   title: '我想给自己一个机会',
@@ -21,5 +29,22 @@ export const images = {
 >
   <Image width="200px" height="266px" src={images.running} />
 </Display>
+<Loading type="success" />
+<Tree initialExpand>
+  <Tree.Folder name="电视剧" extra="🤏今年看了一些剧">
+    <Tree.File name="奥丽芙·基特里奇"/>
+    <Tree.File name="人生切割术" />
+    <Tree.File name="月光骑士" />
+  </Tree.Folder>
+  <Tree.Folder name="读书" extra="🤏今年几乎没看书">
+    <Tree.File name="黄金时代" />
+  </Tree.Folder>
+</Tree>
+
+<Loading type="success" />
+
+
+<Gallery />
+
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
