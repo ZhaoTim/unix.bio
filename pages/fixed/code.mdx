@@ -22,33 +22,6 @@ export const meta = {
 
 <Display
   shadow
-
-.exampleClass {
-	position: relative;
-  }
-
-.exampleClass span {
-	position: relative;
-}
-
-.exampleClass::before {
-	content: "";
-	position: absolute;
-	left: -0.1px;
-	right: -0.1px;
-	bottom: 0;
-	height: 100%;
-	transform: scaleY(.3);
-	transition: transform .6s cubic-bezier(0.53, 0.21, 0, 1);
-	transform-origin: bottom;
-	background-color: hsl(244, 63%, 69%);
-	opacity: 0.6;
-}
-
-.exampleClass:hover::before {
-	transform: scaleY(1);
-}
-
   caption={<Text>组件第一次渲染重要吗？</Text>}
 >
   <Image shadow src="/imgs/code/useIsFirstRender.png" />
