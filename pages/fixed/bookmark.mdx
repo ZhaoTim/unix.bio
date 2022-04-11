@@ -1,0 +1,34 @@
+import { Layout } from 'lib/components'
+import {
+  Image,
+  Display,
+  Text,
+  Code,
+  Link,
+  Dot,
+  Divider,
+  Note,
+  Spacer,
+} from '@geist-ui/core'
+
+export const meta = {
+  title: '收藏夹',
+  date: '',
+}
+
+<Note label={false}>
+<Link target="_blank" icon block href="https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/">
+  <Dot /> 函数式组件与类组件有何不同？
+</Link>
+</Note>
+<Spacer />
+<Note label={false} >
+<Link target="_blank" icon block href="https://zhuanlan.zhihu.com/p/348701319">
+  <Dot /> useLayoutEffect和useEffect的区别
+</Link>
+</Note>
+
+
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

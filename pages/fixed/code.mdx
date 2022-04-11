@@ -2,6 +2,9 @@ import { Layout } from 'lib/components'
 import {
   Image,
   Display,
+  Text,
+  Code,
+  Link,
 } from '@geist-ui/core'
 
 export const meta = {
@@ -12,7 +15,7 @@ export const meta = {
 
 <Display
   shadow
-  caption="有时候需要获取到最新的state"
+  caption={<Text>有时候需要获取到最新的<Code>state</Code></Text>}
 >
   <Image shadow src="/imgs/code/useStateRef.png" />
 </Display>
