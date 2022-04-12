@@ -6,6 +6,7 @@ import {
   Code,
   Link,
 } from '@geist-ui/core'
+import ZoomImage from 'lib/components/ZoomImage';
 
 export const meta = {
   title: '代码片段',
@@ -17,14 +18,14 @@ export const meta = {
   shadow
   caption={<Text>有时候需要获取到最新的<Code>state</Code></Text>}
 >
-  <Image shadow src="/imgs/code/useStateRef.png" />
+  <ZoomImage shadow src="/imgs/code/useStateRef.png" />
 </Display>
 
 <Display
   shadow
   caption={<Text>组件第一次渲染重要吗？</Text>}
 >
-  <Image shadow src="/imgs/code/useIsFirstRender.png" />
+  <ZoomImage shadow src="/imgs/code/useIsFirstRender.png" />
 </Display>
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
