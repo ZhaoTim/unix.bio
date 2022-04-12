@@ -16,18 +16,39 @@ export const meta = {
   date: '',
 }
 
-<Note label={false}>
-<Link target="_blank" icon block href="https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/">
-  <Dot /> 函数式组件与类组件有何不同？
-</Link>
-</Note>
-<Spacer />
-<Note label={false} >
-<Link target="_blank" icon block href="https://zhuanlan.zhihu.com/p/348701319">
-  <Dot /> useLayoutEffect和useEffect的区别
-</Link>
-</Note>
+export const LinkItem = ({
+  href,
+  children,
+}) => {
+  const links = [
+    {
+      link: 'xxxx',
+      title: 'aaaaa',
+    }
+  ];
+  return (
+    links.map(link => (
+      <>
+        <Note label={false}>
+          <Link target="_blank" icon block href={href}>
+            <Dot /> {children}
+          </Link>
+        </Note>
+        <Spacer />
+      </>
+    ))
+  )
+};
 
+<LinkItem href="https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/">
+  函数式组件与类组件有何不同？
+</LinkItem>
+<LinkItem href="https://zhuanlan.zhihu.com/p/348701319">
+  useLayoutEffect和useEffect的区别
+</LinkItem>
+<LinkItem href="https://www.chakshunyu.com/blog/how-does-shallow-comparison-work-in-react/">
+  How Does Shallow Comparison Work In React?
+</LinkItem>
 
 
 
