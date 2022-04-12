@@ -1,0 +1,33 @@
+import { Layout } from 'lib/components'
+import {
+  Image,
+  Display,
+  Text,
+  Code,
+  Link,
+  Dot,
+  Divider,
+  Note,
+  Spacer,
+  Tag,
+} from '@geist-ui/core'
+
+export const meta = {
+  title: '单词',
+  date: '',
+}
+
+<Tag type="success">
+  <Link href="https://www.vocabulary.com/dictionary/synonym" target="_blank">synonym</Link>
+</Tag>
+<Spacer inline />
+<Tag type="success">
+  <Link href="https://www.vocabulary.com/dictionary/erect" target="_blank">erect</Link>
+</Tag>
+<Spacer inline />
+<Tag type="success">
+  <Link href="https://www.vocabulary.com/dictionary/nuisance" target="_blank">nuisance</Link>
+</Tag>
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
