@@ -28,4 +28,15 @@ export const meta = {
   <ZoomImage shadow src="/imgs/code/useIsFirstRender.png" />
 </Display>
 
+`async`函数保证了执行后总是返回一个`promise`实例，即使返回的是`非promise`类型，
+最终也会被包装成一个`resolved`态的`promise`实例然后返回。
+
+```js
+const asyncFn = async () => {
+  return 100;
+}
+// 会输出100
+asyncFn().then(result => console.log(result));
+```
+
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
