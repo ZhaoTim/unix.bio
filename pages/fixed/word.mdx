@@ -10,6 +10,7 @@ import {
   Note,
   Spacer,
   Tag,
+  Grid,
 } from '@geist-ui/core'
 
 export const meta = {
@@ -17,21 +18,25 @@ export const meta = {
   date: '',
 }
 
-<Tag type="success">
-  <Link href="https://www.vocabulary.com/dictionary/synonym" target="_blank">synonym</Link>
-</Tag>
-<Spacer inline />
-<Tag type="success">
-  <Link href="https://www.vocabulary.com/dictionary/erect" target="_blank">erect</Link>
-</Tag>
-<Spacer inline />
-<Tag type="success">
-  <Link href="https://www.vocabulary.com/dictionary/nuisance" target="_blank">nuisance</Link>
-</Tag>
-<Spacer inline />
-<Tag type="success">
-  <Link href="https://www.vocabulary.com/dictionary/readily" target="_blank">readily</Link>
-</Tag>
+export const Words = () => {
+  const words = [
+    'synonym',
+    'erect',
+    'nuisance',
+    'readily',
+  ];
+  return words.map(_ => <Word>{_}</Word>);
+};
 
+export const Word = ({ children }) => (
+  <>
+    <Tag type="success" mb={0.8}>
+      <Link href={`https://www.vocabulary.com/dictionary/${children}`} target="_blank">{children}</Link>
+    </Tag>
+    <Spacer inline />
+  </>
+);
+
+<Words />
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
