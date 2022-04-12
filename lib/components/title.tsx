@@ -84,10 +84,11 @@ const Title: React.FC<TitleProps> = ({ title, date }) => {
   return (
     <div className="title">
       <h1>{title}</h1>
-      <div className="date-box">
-        <DateDisplay date={date} />
-      </div>
-
+      {Boolean(date) ? (
+        <div className="date-box">
+          <DateDisplay date={date} />
+        </div>
+      ) : null}
       <style jsx>{`
         .title {
           margin: ${theme.layout.gap} 0;

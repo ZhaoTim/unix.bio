@@ -11,6 +11,7 @@ import {
   Drawer,
 } from '@geist-ui/core'
 import Gallery from 'lib/Gallery'
+import ZoomImage from 'lib/components/ZoomImage'
 
 export const meta = {
   title: '我想给自己一个机会',
@@ -44,7 +45,20 @@ export const images = {
 <Loading type="success" />
 
 
-<Gallery />
 
+<Grid.Container wrap="no-wrap" alignItems="center">
+      <Display
+    shadow
+    caption="爷爷"
+  >
+    <ZoomImage width="300px" shadow src="/imgs/photography/spring_daye.jpg"/>
+  </Display>
+<Display
+    shadow
+    caption="公司楼下的花（随手拍就赢了😁 Well）"
+  >
+    <ZoomImage width="300px" shadow src="/imgs/photography/under_company.jpg"/>
+  </Display>
+</Grid.Container>
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
