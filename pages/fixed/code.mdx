@@ -5,6 +5,8 @@ import {
   Text,
   Code,
   Link,
+  Loading,
+  Tag,
 } from '@geist-ui/core'
 import ZoomImage from 'lib/components/ZoomImage';
 
@@ -38,5 +40,10 @@ const asyncFn = async () => {
 // 会输出100
 asyncFn().then(result => console.log(result));
 ```
+
+<Loading type="success"/>
+
+`box-sizing`用来确定`width`作用于一个元素（Box）的哪些区域。默认值为`content-box`，只作用于`content`，不符合正常
+的心智模型，最好改成`border-box`，作用于`content + padding + border`。
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
