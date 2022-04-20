@@ -14,7 +14,7 @@ import Gallery from 'lib/Gallery'
 import ZoomImage from 'lib/components/ZoomImage'
 
 export const meta = {
-  title: '我想给自己一个机会',
+  title: '更新一下(2020.04)',
   date: '2022-04-10T14:09:17.242Z',
   description: '',
   image: '',
@@ -24,41 +24,32 @@ export const images = {
   running: 'https://static.zhaomeicheng.com/WechatIMG947.jpeg',
 }
 
-<Display
-  shadow
-  caption="4月份重新开始减肥，五一要回哈尔滨，这次应该会坚持下来吧"
->
-  <Image width="200px" height="266px" src={images.running} />
-</Display>
-<Loading type="success" />
 <Tree initialExpand>
-  <Tree.Folder name="电视剧" extra="🤏今年看了一些剧">
-    <Tree.File name="奥丽芙·基特里奇"/>
+  <Tree.Folder name="电视剧" extra="今年看了一些剧">
+    <Tree.File name="奥丽芙·基特里奇" />
     <Tree.File name="人生切割术" />
     <Tree.File name="月光骑士" />
-  </Tree.Folder>
-  <Tree.Folder name="读书" extra="🤏今年几乎没看书">
-    <Tree.File name="黄金时代" />
+    <Tree.File name="亚特兰大" />
   </Tree.Folder>
 </Tree>
 
 <Loading type="success" />
 
+<Display shadow caption="4月份重新开始减肥，五一要回哈尔滨，这次应该会坚持下来吧">
+  <Image width="200px" height="266px" src={images.running} />
+</Display>
 
+<Loading type="success" />
 
 <Grid.Container wrap="no-wrap" alignItems="center">
-      <Display
-    shadow
-    caption="爷爷"
-  >
-    <ZoomImage width="300px" shadow src="/imgs/photography/spring_daye.jpg"/>
+  <Display shadow caption="爷爷">
+    <ZoomImage width="300px" shadow src="/imgs/photography/spring_daye.jpg" />
   </Display>
-<Display
-    shadow
-    caption="公司楼下的花（随手拍就赢了😁 Well）"
-  >
-    <ZoomImage width="300px" shadow src="/imgs/photography/under_company.jpg"/>
+  <Display shadow caption="公司楼下的花（随手拍就赢了😁 Well）">
+    <ZoomImage width="300px" shadow src="/imgs/photography/under_company.jpg" />
   </Display>
 </Grid.Container>
+
+离职以后，主动联系的人变多了。对我来说，这是一种压力，输出到对方的话，可能就是觉得我不想亲近。夏天马上就来了，这个夏天前我才知道，我是恐惧夏天的。
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>

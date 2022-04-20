@@ -12,7 +12,7 @@ import { BlogConfigsProvider } from 'lib/components'
 import { HybridLink, HybridCode } from 'lib/components/mdx'
 
 const Application: NextPage<AppProps<unknown>> = ({ Component, pageProps }) => {
-  const [themeType, setThemeType] = useState('light')
+  const [themeType, setThemeType] = useState('dark')
   const domain = useMemo(() => getDNSPrefetchValue(BLOG.domain), [])
   const changeHandle = useCallback(isDark => {
     const next = isDark ? 'light' : 'dark'
@@ -21,7 +21,7 @@ const Application: NextPage<AppProps<unknown>> = ({ Component, pageProps }) => {
 
   useEffect(() => {
     if (typeof localStorage !== 'object') return
-    setThemeType(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light')
+    setThemeType('dark')
   }, [])
   useEffect(() => localStorage.setItem('theme', themeType), [themeType])
   useDomClean()
@@ -69,11 +69,9 @@ const Application: NextPage<AppProps<unknown>> = ({ Component, pageProps }) => {
           </BlogConfigsProvider>
         </MDXProvider>
         <style global jsx>{`
-          @media only screen and (max-width: 767px) {
             html {
-              font-size: 15px;
+              font-size: 20px !important;
             }
-          }
         `}</style>
       </GeistProvider>
     </>
