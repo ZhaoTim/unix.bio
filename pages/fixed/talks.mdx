@@ -1,0 +1,26 @@
+import { Layout } from 'lib/components'
+import {
+  Image,
+  Display,
+  Text,
+  Code,
+  Link,
+  Dot,
+  Divider,
+  Note,
+  Spacer,
+  Tag,
+  Grid,
+  Card,
+} from '@geist-ui/core'
+
+export const meta = {
+  title: '🌵说说🌵',
+  date: '',
+}
+
+<Card>北京的疫情又严重了，朋友圈里都在屯菜。</Card>
+<Spacer />
+<Card>裸辞后的生活并不是那么美好，面了几个公司连一面都没过通过。</Card>
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>

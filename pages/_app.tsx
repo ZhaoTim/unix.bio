@@ -69,9 +69,11 @@ const Application: NextPage<AppProps<unknown>> = ({ Component, pageProps }) => {
           </BlogConfigsProvider>
         </MDXProvider>
         <style global jsx>{`
+          @media only screen and (max-width: 767px) {
             html {
-              font-size: 20px !important;
+              font-size: 15px;
             }
+          }
         `}</style>
       </GeistProvider>
     </>
