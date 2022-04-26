@@ -1,0 +1,59 @@
+import Layout from 'lib/components/layout'
+import {
+  Display,
+  Image,
+  Grid,
+  Tree,
+  Rating,
+  Note,
+  Divider,
+  Loading,
+  Drawer,
+  Card,
+} from '@geist-ui/core'
+export const meta = {
+  title: 'eventBubbling',
+  date: '2022-04-10T14:09:17.242Z',
+  description: '',
+  image: '',
+}
+
+export const App = () => {
+  const handleOuterClick = event => {
+    alert(`👉: ${event.clickEventHasProcessed ? '😁' : '😭'}`)
+  }
+  const handleInnerClick = event => {
+    event.clickEventHasProcessed = true
+  }
+  return (
+    <Card onClick={handleOuterClick}>
+      <Card onClick={handleInnerClick}>这是子元素</Card>
+    </Card>
+  )
+}
+
+在 DOM 的事件中，有一种现象是`bubbling`。在`bubbling`的过程中，我们可以通过`eventHandler`的`event`参数来进行父、子元素通信。
+
+```jsx
+export const App = () => {
+  const handleOuterClick = event => {
+    alert(`👉: ${event.clickEventHasProcessed ? '😁' : '😭'}`)
+  }
+  const handleInnerClick = event => {
+    event.clickEventHasProcessed = true
+  }
+  return (
+    <Card onClick={handleOuterClick}>
+      <Card onClick={handleInnerClick}>这是子元素</Card>
+    </Card>
+  )
+}
+```
+
+<Loading />
+<App />
+<Loading />
+
+如果尝试点击子元素区域内，会发现弹窗弹出 😁 ，点击子元素和父元素之间的区域会弹出 😭，证明了可以通过`event`对象来进行信息传递。
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
