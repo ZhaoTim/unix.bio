@@ -1,0 +1,100 @@
+import Layout from 'lib/components/layout'
+import {
+  Display,
+  Image,
+  Grid,
+  Tree,
+  Rating,
+  Note,
+  Divider,
+  Loading,
+  Drawer,
+  Card,
+} from '@geist-ui/core'
+
+export const meta = {
+  title: 'setTimeout输出',
+  date: '2022-04-10T14:09:17.242Z',
+  description: '',
+  image: '',
+}
+
+```js
+let func = () => {
+  console.log(1)
+}
+setTimeout(() => {
+  func = () => {
+    console.log(2)
+  }
+}, 0)
+
+setTimeout(func, 100)
+```
+
+**输出结果：**
+
+```
+--------
+1
+--------
+```
+
+**分析过程：**
+这段代码里不存在 [[函数声明]] _function declaration_，func 是 [[函数表达式]] _function expression_
+
+**line1 --- 3：**使用 let 声明变量 func，指向一个函数。
+
+**line4 --- 8：**遇到了 setTimeout，setTimeout 的参数(回调函数)会在主代码执行完成后，加入到 task queue。
+
+**line10：**又遇到了一个 setTimeout，参数是 func 变量，100ms 后 func 被加入到 task queue.
+
+主代码执行结束 🔚
+
+line4---8 的回调函数被加入到了 task queue
+
+此时 100ms 还没到哦，所以取出 line4---8 的回调函数执行掉，执行完后，func 指向了一个新的箭头函数
+
+100ms 时间到了，将 line10 的 func 加入到 task queue
+此时没有其他的任务，取出 func 执行，此处有陷阱！大多人会觉得**输出 2**，因为 func 在之前指向了另一个箭头函数(代码里输出 2)，但其实不是，setTimeout 并不会感知到 func 变量的变化，它接收的其实是变量地址，只不过是通过 func 这个载体来传达的变量地址，后续 func 怎么变，都与 setTimeout 无关了，这就是 JS 的晦涩之处吧。
+
+**变体：**
+变体 1：
+
+```js
+const obj = {
+  func: () => {
+    console.log(1)
+  },
+}
+setTimeout(() => {
+  obj.func = () => {
+    console.log(2)
+  }
+}, 0)
+
+setTimeout(obj.func, 100)
+```
+
+依旧会输出 1。
+
+变体 2：
+
+```js
+let func = () => {
+  console.log(1)
+}
+setTimeout(() => {
+  func = () => {
+    console.log(2)
+  }
+}, 0)
+
+setTimeout(() => {
+  func()
+}, 100)
+```
+
+这次会输出 2！这个例子中 func 延迟执行，不再是 setTimeout 的参数了，具有延迟动态性。
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
